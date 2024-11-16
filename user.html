@@ -25,7 +25,20 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
+<style>
+  table{
+    margin-left: 20px;
+
+  }
+  table, th,td{
+    border: 1px solid rgba(0,0,0,.4);
+    text-align: center;
+
+  }
+</style>
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -43,7 +56,7 @@
       </li>
       
     </ul>
-    
+   
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -66,7 +79,7 @@
           <img style="width: 4rem;" src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">User</a>
         </div>
       </div>
 
@@ -78,52 +91,18 @@
               <!-- <i class="nav-icon far fa-envelope"></i> -->
               <i class="fas fa-book"></i>
               <p>
-                  Buku
-                <i class="fas fa-angle-left right"></i>
+                  Daftar Buku
+                <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Daftar Buku</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tambah Buku</p>
-                </a>
-              </li>
+            
+          </li>
+          
+             
              
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-               <i class="fas fa-users"></i>
-              <p>
-                Pengujung
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Daftar Pengujung</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tambah pengujung</p>
-                </a>
-              </li>
-             
-            </ul>
-          </li>
          
-        </ul>
+  
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -137,7 +116,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Daftar Buku</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -147,49 +126,34 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+        <form style="margin-left: 20px;" >
+            <input style="border: 1px solid rgba(0,0,0,.2);" type="text" name="search">
+            <button style="margin-left: 10px; border: 1px solid rgba(0,0,0,.2);" type="submit" name="search">Cari</button>
+          </form><br>
+
+          <table border="0" cellpadding="10" cellspacing="0" width="80%"  >
+            
+            <tr style="background-color: rgb(210,210,210); font-weight: bold;">
+              <td width="10%">NO BUKU</td>
+              <td>JUDUL BUKU</td>
+              <td>PENERBIT</td>
+              <td>TAHUN</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>BUKU 1</td>
+              <td>PENERBIT 1</td>
+              <td>2024</td>
+
+            </tr>
+              
+         
+
+          </table>  
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Total Buku</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-book"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Pengujung</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-users"></i>
-                <!-- <i class="ion ion-stats-bars"></i> -->
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-        </div>
-       
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
