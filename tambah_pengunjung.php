@@ -1,3 +1,6 @@
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,24 +150,42 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+
+  <?php
+  if (isset($_POST['bsimpan'])) {
+    $a = $_POST['tNama'];
+    $b = $_POST['tAngkatan'];
+    $c = $_POST['tKunjungan'];
+
+    $simpan = mysqli_query($koneksi,"INSERT INTO tb_pengujung values('','$a','$b','$c')");
+
+    if ($simpan) {
+      header('location:pengunjung.php');
+      exit();
+    }else{
+      echo "<p>Data Gagal Disimpan</p>";
+    }
+  }
+  ?>
+
+              <form method="POST" action="" class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputText3" class="col-sm-2 col-form-label">Hari/Tanggal</label>
+                    <label for="tNama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText3" placeholder="Hari/Tanggal">
+                      <input type="text" class="form-control" name="tNama" placeholder="Nama">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                    <label for="tAngkatan" class="col-sm-2 col-form-label">Angkatan</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText3" placeholder="Nama">
+                      <input type="text" class="form-control" name="tAngkatan" placeholder="Angkatan">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputText" class="col-sm-2 col-form-label">Angkatan</label>
+                    <label for="tKunjungan" class="col-sm-2 col-form-label">Kunjungan</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText3" placeholder="Angkatan">
+                      <input type="datetime-local" class="form-control" name="tKunjungan" placeholder="Kunjungan">
                     </div>
                   </div>
 
@@ -173,9 +194,9 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-danger">Batal</button>
+                  <a href="pengunjung.php" button type="submit" class="btn btn-danger">Batal</a>
                  
-                  <button type="submit" class="btn btn-info">Simpan</button>
+                  <button type="submit" name="bsimpan" class="btn btn-info">Simpan</button>
                 </div>
                 <!-- /.card-footer -->
               </form>
