@@ -1,3 +1,6 @@
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,7 +158,7 @@
                   </div>
                 </div>
                 <div class="col col-4">
-                  <a href=""><button class="btn btn-info">Tambah Pengujung </button></a>
+                  <a href="tambah_pengunjung.php" button class="btn btn-info">Tambah Pengujung</a>
                 </div>
               
                 
@@ -166,29 +169,42 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Hari/Tanggal</th>
+                    <th>id</th>
                     <th>Nama</th>
                     <th>Angkatan</th>
+                    <th>Kunjungan</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
-       
-                  <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <a href=""><button class="btn btn-primary">Update</button></a>
 
-                      <a href=""><button class="btn btn-danger">Hapus</button></a>
-                    </td>
-                  </tr>
-          
+      <?php
+      $id = 1;
+      $hasil = mysqli_query($koneksi,"SELECT * fROM tb_pengujung");
+
+      if (mysqli_num_rows($hasil) == 0) {
+        echo "<tr><td colspan='5'>Data Belum Ada</td></tr>";
+      }else{
+        while ($data = mysqli_fetch_array($hasil)){
+        echo "<tbody>";
+        echo "<tr>";
+        echo "<td>".$id."</td>";
+        echo "<td>".$data[1]."</td>";
+        echo "<td>".$data[2]."</td>";
+        echo "<td>".$data[3]."</td>";
+        echo "<td>";
+        
+        echo "<a href='?ke=pengujungupdate&kd=".$data[0]."' button class='btn btn-primary'>Update</button></a>";
+        echo "<a href='?ke=pengujunghapus&kd=".$data[0]."' button class='btn btn-danger'>Hapus</button></a>";
+        
+        echo "</td>";
+        echo "</tr>";
+        echo "</tbody>";
+        $id++;
+        }
+        
+      }
+    ?>
                   
-                  </tbody>
                 </table>
                 </div>
               </div>
